@@ -160,7 +160,7 @@ Pkg.instantiate()
 
 ```r
 # Source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctools.julia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools.julia/main/inctools.julia/R/install.R")
 
 # Run streamlined installation (handles R package + Julia dependencies)
 install_inctools_julia()
