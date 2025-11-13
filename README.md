@@ -58,7 +58,7 @@ result = inccounts(1000, 200, 180, 20, 130.0, 0.01,
 ```r
 # Option 1: Install from GitHub (recommended)
 # First, source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctools.julia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools.julia/main/inctools.julia/R/install.R")
 install_inctools_julia()  # Handles everything automatically
 
 # Option 2: Manual installation from local repository (from repository root)
