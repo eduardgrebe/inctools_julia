@@ -66,6 +66,10 @@
     # Activate the Inctools.jl project
     JuliaCall::julia_eval(sprintf('using Pkg; Pkg.activate("%s")', pkg_path))
 
+    # Install all Julia dependencies (if not already installed)
+    message("Installing Julia dependencies (first run only)...")
+    JuliaCall::julia_eval("using Pkg; Pkg.instantiate()")
+
     # Load Inctools.jl
     JuliaCall::julia_eval("using Inctools")
 
