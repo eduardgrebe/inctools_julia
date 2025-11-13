@@ -1,4 +1,4 @@
-Package: InctoolsJulia
+Package: r_inctools_julia
 Type: Package
 Title: R Interface to Inctools.jl - HIV Incidence Estimation Tools (Julia Backend)
 Version: 0.2.0

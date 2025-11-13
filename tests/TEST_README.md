@@ -45,7 +45,7 @@ The tests expect this directory structure:
 ```
 inctools_julia/          # ← Run tests from here (repository root)
 ├── Inctools/            # Julia package
-├── InctoolsJulia/       # R package
+├── r_inctools_julia/    # R package
 │   └── R/               # R source files
 └── tests/               # Test files
     ├── test_*.jl
@@ -58,5 +58,5 @@ inctools_julia/          # ← Run tests from here (repository root)
   - Work from repository root: uses `./Inctools`
   - Work from `tests/` directory: uses `../Inctools`
 - **R tests** must be run from repository root
-  - They source from `InctoolsJulia/R/`
+  - They source from `r_inctools_julia/R/`
   - Paths are relative to repository root

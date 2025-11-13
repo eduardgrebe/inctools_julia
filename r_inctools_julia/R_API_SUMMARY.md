@@ -2,7 +2,7 @@
 
 **Date:** 2025-11-13
 **Status:** ✅ Complete and ready for use
-**Package Name:** InctoolsJulia
+**Package Name:** r_inctools_julia
 
 ---
 
@@ -10,7 +10,7 @@
 
 Created a complete R package wrapper for Inctools.jl, allowing R users to seamlessly call Julia functions using the familiar R syntax. The implementation uses the **JuliaCall** R package to bridge between R and Julia.
 
-**Important:** The R package is named **InctoolsJulia** (not "Inctools") to avoid conflicts with the existing **inctools** package on CRAN. Both provide similar functionality, but InctoolsJulia uses a high-performance Julia backend.
+**Important:** The R package is named **r_inctools_julia** (not "Inctools") to avoid conflicts with the existing **inctools** package on CRAN. Both provide similar functionality, but r_inctools_julia uses a high-performance Julia backend.
 
 ---
 
@@ -20,7 +20,7 @@ Created a complete R package wrapper for Inctools.jl, allowing R users to seamle
 
 ```
 inctools_julia/         # Repository root
-├── InctoolsJulia/      # R package directory
+├── r_inctools_julia/   # R package directory
 │   ├── R/
 │   │   ├── zzz.R       # Package initialization and Julia setup
 │   │   └── inctools.R  # R wrapper functions for all exported Julia functions
@@ -57,7 +57,7 @@ Each function:
 
 #### `DESCRIPTION`
 Standard R package metadata:
-- Package name: InctoolsJulia
+- Package name: r_inctools_julia
 - Version: 0.1.0
 - Dependencies: R ≥ 3.5.0, JuliaCall ≥ 0.17.0
 - System requirements: Julia ≥ 1.6
@@ -149,7 +149,7 @@ inctools_setup()
 
 ```r
 install.packages(".", repos = NULL, type = "source")
-library(InctoolsJulia)
+library(r_inctools_julia)
 ```
 
 ### Method 3: Use Installation Script
@@ -173,7 +173,7 @@ The script:
 ### Example 1: Basic Incidence Estimation
 
 ```r
-library(InctoolsJulia)
+library(r_inctools_julia)
 
 result <- inccounts(
   n = 1000, npos = 200, ntestR = 180, nR = 20,
@@ -331,9 +331,9 @@ getwd()  # Should show: .../inctools_julia/ (repository root)
 
 ## Comparison: R vs Julia Interface
 
-| Aspect | Pure R (inctools) | Julia + R (InctoolsJulia) |
-|--------|------------------|---------------------------|
-| **R Package Name** | inctools | InctoolsJulia |
+| Aspect | Pure R (inctools) | Julia + R (r_inctools_julia) |
+|--------|------------------|------------------------------|
+| **R Package Name** | inctools | r_inctools_julia |
 | **Installation** | Simple (`install.packages`) | Requires Julia |
 | **First run time** | Fast | Slow (~45s compilation) |
 | **Subsequent runs** | Moderate | Very fast |
@@ -392,7 +392,7 @@ Potential additions:
 
 ✅ **Fully functional R interface to Inctools.jl**
 
-The R API (package: **InctoolsJulia**) provides:
+The R API (package: **r_inctools_julia**) provides:
 - Complete access to all Inctools.jl functions
 - Native R feel with automatic Julia management
 - Comprehensive documentation and examples
@@ -403,6 +403,6 @@ The R API (package: **InctoolsJulia**) provides:
 
 Users can now choose between two R packages:
 - **inctools** (CRAN): Pure R implementation, easier installation, moderate performance
-- **InctoolsJulia** (this): Julia backend, requires Julia, excellent performance
+- **r_inctools_julia** (this): Julia backend, requires Julia, excellent performance
 
-Both packages provide the same functionality, allowing users to choose based on their needs and environment. The naming distinction (inctools vs InctoolsJulia) prevents any conflicts if users want to have both installed.
+Both packages provide the same functionality, allowing users to choose based on their needs and environment. The naming distinction (inctools vs r_inctools_julia) prevents any conflicts if users want to have both installed.

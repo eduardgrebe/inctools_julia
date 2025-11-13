@@ -1,4 +1,4 @@
-# R Package Renaming: Inctools → InctoolsJulia
+# R Package Renaming: Inctools → r_inctools_julia
 
 **Date:** 2025-11-13
 **Reason:** Avoid conflict with existing 'inctools' package on CRAN
@@ -15,7 +15,7 @@ The original R package wrapper was named **Inctools**, which could conflict with
 
 ## Solution
 
-Renamed the R package to **InctoolsJulia** throughout:
+Renamed the R package to **r_inctools_julia** throughout:
 - Clearly distinguishes it from CRAN's inctools package
 - Makes it obvious this is the Julia backend version
 - Allows users to have both packages installed without conflicts
@@ -27,18 +27,18 @@ Renamed the R package to **InctoolsJulia** throughout:
 
 ### 1. DESCRIPTION
 - **Before:** `Package: Inctools`
-- **After:** `Package: InctoolsJulia`
+- **After:** `Package: r_inctools_julia`
 - Added note in description: "distinct from the 'inctools' R package on CRAN"
 
 ### 2. R/zzz.R
 - **Before:** `package = "Inctools"`
-- **After:** `package = "InctoolsJulia"`
+- **After:** `package = "r_inctools_julia"`
 - Updated path detection for installed package
 
 ### 3. README_R.md
 - **Before:** `library(Inctools)`
-- **After:** `library(InctoolsJulia)`
-- Updated title to "InctoolsJulia"
+- **After:** `library(r_inctools_julia)`
+- Updated title to "r_inctools_julia"
 - Added prominent note about naming distinction
 - Updated all usage examples
 
@@ -46,7 +46,7 @@ Renamed the R package to **InctoolsJulia** throughout:
 - Updated package name references
 - Clarified comparison table
 - Updated conclusion section
-- Changed all `library(Inctools)` to `library(InctoolsJulia)`
+- Changed all `library(Inctools)` to `library(r_inctools_julia)`
 
 ### 5. install_R_package.R
 - Updated title comment
@@ -75,8 +75,8 @@ library(inctools)  # CRAN version - CONFLICT!
 ### After (Clear)
 ```r
 # Clear distinction
-library(InctoolsJulia)  # Julia backend version
-library(inctools)       # CRAN version - no conflict
+library(r_inctools_julia)  # Julia backend version
+library(inctools)          # CRAN version - no conflict
 ```
 
 ### Users can now:
@@ -111,13 +111,13 @@ source("R/inctools.R")
 ### Method 2: Install as package
 ```r
 install.packages(".", repos = NULL, type = "source")
-library(InctoolsJulia)  # Changed from library(Inctools)
+library(r_inctools_julia)  # Changed from library(Inctools)
 ```
 
 ### Method 3: Installation script
 ```bash
 Rscript install_R_package.R
-# Will show: "InctoolsJulia - R Interface to Inctools.jl"
+# Will show: "r_inctools_julia - R Interface to Inctools.jl"
 ```
 
 ---
@@ -125,15 +125,15 @@ Rscript install_R_package.R
 ## Documentation Updates
 
 All documentation now clearly states:
-- R package name: **InctoolsJulia**
+- R package name: **r_inctools_julia**
 - Julia package name: **Inctools.jl** (unchanged)
 - CRAN package name: **inctools** (external, unchanged)
 
 ### Example from README_R.md:
 ```
-# InctoolsJulia - R Interface to Inctools.jl
+# r_inctools_julia - R Interface to Inctools.jl
 
-**Note:** This package is named **InctoolsJulia** to distinguish it from the
+**Note:** This package is named **r_inctools_julia** to distinguish it from the
 existing **inctools** package on CRAN. Both packages provide similar functionality,
 but this version uses a high-performance Julia backend.
 ```
@@ -145,7 +145,7 @@ but this version uses a high-performance Julia backend.
 | Package | Source | Backend | Installation | Name in R |
 |---------|--------|---------|--------------|-----------|
 | **inctools** | CRAN | Pure R | `install.packages("inctools")` | `library(inctools)` |
-| **InctoolsJulia** | This repo | Julia | Manual install | `library(InctoolsJulia)` |
+| **r_inctools_julia** | This repo | Julia | Manual install | `library(r_inctools_julia)` |
 | **Inctools.jl** | Julia | Julia | Julia Pkg manager | `using Inctools` |
 
 ---
@@ -192,7 +192,7 @@ Rscript test_R_api.R
 
 ## Conclusion
 
-✅ **Package successfully renamed from Inctools to InctoolsJulia**
+✅ **Package successfully renamed from Inctools to r_inctools_julia**
 
 The renaming:
 - Eliminates potential conflicts with CRAN's inctools package

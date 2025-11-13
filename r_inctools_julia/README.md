@@ -1,8 +1,8 @@
-# InctoolsJulia - R Interface to Inctools.jl
+# r_inctools_julia - R Interface to Inctools.jl
 
 This package provides an R interface to the **Inctools.jl** Julia package for HIV incidence estimation using cross-sectional survey data with recency biomarkers.
 
-**Note:** This package is named **InctoolsJulia** to distinguish it from the existing **inctools** package on CRAN. Both packages provide similar functionality, but this version uses a high-performance Julia backend.
+**Note:** This package is named **r_inctools_julia** to distinguish it from the existing **inctools** package on CRAN. Both packages provide similar functionality, but this version uses a high-performance Julia backend.
 
 ## Features
 
@@ -21,7 +21,7 @@ This package provides an R interface to the **Inctools.jl** Julia package for HI
    - Add Julia to your PATH
    - Verify installation: `julia --version`
 
-### Install InctoolsJulia for R
+### Install r_inctools_julia for R
 
 #### Option 1: Streamlined Installation from GitHub (Recommended)
 
@@ -29,7 +29,7 @@ This is the easiest method - it handles all dependencies automatically:
 
 ```r
 # Source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
 
 # Run streamlined installation
 install_inctools_julia()
@@ -37,7 +37,7 @@ install_inctools_julia()
 
 This will:
 - Install devtools (if needed)
-- Install InctoolsJulia R package from GitHub
+- Install r_inctools_julia R package from GitHub
 - Initialize Julia environment
 - Install all Julia dependencies (DataFrames, Distributions, etc.)
 - Verify the installation with a test
@@ -48,7 +48,7 @@ This will:
 ```r
 # From R, in the directory containing this README
 install.packages(".", repos = NULL, type = "source")
-library(InctoolsJulia)
+library(r_inctools_julia)
 ```
 
 #### Option 3: Load without installing
@@ -67,7 +67,7 @@ inctools_setup()
 After installation, you can check that everything is working:
 
 ```r
-library(InctoolsJulia)
+library(r_inctools_julia)
 
 # Check installation status
 check_inctools_installation()
@@ -76,7 +76,7 @@ check_inctools_installation()
 ## Quick Start
 
 ```r
-library(InctoolsJulia)
+library(r_inctools_julia)
 
 # Example 1: Estimate incidence from count data
 result <- inccounts(
@@ -107,7 +107,7 @@ print(result)
 ### Example 1: Basic Incidence Estimation (Delta Method)
 
 ```r
-library(InctoolsJulia)
+library(r_inctools_julia)
 
 # Using Delta method (faster, analytical)
 result <- inccounts(
