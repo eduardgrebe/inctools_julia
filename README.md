@@ -3,7 +3,7 @@
 This repository contains two packages for HIV incidence estimation using the Kassanjee method:
 
 1. **Inctools.jl** - Native Julia package
-2. **r_inctools_julia** - R package that wraps Inctools.jl
+2. **inctools.julia** - R package that wraps Inctools.jl
 
 Both packages provide identical functionality. Choose based on your environment and needs.
 
@@ -19,7 +19,7 @@ inctools_julia/         # Repository root
 │   │   └── Inctools.jl # Main Julia code
 │   └── ...
 │
-├── r_inctools_julia/   # R package
+├── inctools.julia/   # R package
 │   ├── R/              # R wrapper functions
 │   ├── inst/           # Installed files
 │   │   └── Inctools/   # Symlink to ../Inctools
@@ -58,12 +58,12 @@ result = inccounts(1000, 200, 180, 20, 130.0, 0.01,
 ```r
 # Option 1: Install from GitHub (recommended)
 # First, source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctools.julia/R/install.R")
 install_inctools_julia()  # Handles everything automatically
 
 # Option 2: Manual installation from local repository (from repository root)
-install.packages("r_inctools_julia", repos = NULL, type = "source")
-library(r_inctools_julia)
+install.packages("inctools.julia", repos = NULL, type = "source")
+library(inctools.julia)
 
 # Use the package
 result <- inccounts(1000, 200, 180, 20, 130, 0.01,
@@ -74,7 +74,7 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 
 ## Package Comparison
 
-| Feature | Inctools.jl (Julia) | r_inctools_julia (R) |
+| Feature | Inctools.jl (Julia) | inctools.julia (R) |
 |---------|---------------------|----------------------|
 | **Language** | Pure Julia | R wrapper for Julia |
 | **Speed** | Very fast | Very fast (uses Julia) |
@@ -105,7 +105,7 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 - `incdif(prev, σ_prev, prevR, σ_prevR, mdri, σ_mdri, frr, σ_frr; ...)` - Test difference between populations
 - `rtmvnorm(n, μ, Σ, lower, upper; method)` - Truncated multivariate normal sampling
 
-### 2. r_inctools_julia (R Package)
+### 2. inctools.julia (R Package)
 
 **Version:** 0.2.0
 
@@ -115,7 +115,7 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 - Same performance as Julia (calls Julia backend)
 - Familiar R syntax and conventions
 
-**Documentation:** See `r_inctools_julia/README.md`
+**Documentation:** See `inctools.julia/README.md`
 
 **Key Functions:**
 - `prevalence(pos, n, de, ci, alpha)` - Prevalence estimation
@@ -160,7 +160,7 @@ Pkg.instantiate()
 
 ```r
 # Source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctools.julia/R/install.R")
 
 # Run streamlined installation (handles R package + Julia dependencies)
 install_inctools_julia()
@@ -176,13 +176,13 @@ This automatically:
 
 ```r
 # From repository root
-install.packages("r_inctools_julia", repos = NULL, type = "source")
+install.packages("inctools.julia", repos = NULL, type = "source")
 ```
 
 **Option 3: Use installation script**
 
 ```bash
-cd r_inctools_julia
+cd inctools.julia
 Rscript install_R_package.R
 ```
 
@@ -194,7 +194,7 @@ Rscript install_R_package.R
 - Julia ≥ 1.6
 - Dependencies: DataFrames, Distributions, LinearAlgebra, Statistics
 
-### For r_inctools_julia
+### For inctools.julia
 - Julia ≥ 1.6
 - R ≥ 3.5.0
 - R package: JuliaCall ≥ 0.17.0
@@ -209,7 +209,7 @@ Rscript install_R_package.R
 - Fixed typos in error messages
 - Standardized parameter naming (cov → covar)
 - Fixed bugs in inccounts (parameter passing)
-- Added R package wrapper (r_inctools_julia)
+- Added R package wrapper (inctools.julia)
 - Comprehensive test suite (9 tests)
 - Updated author information
 

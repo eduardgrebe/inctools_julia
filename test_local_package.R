@@ -1,9 +1,9 @@
 #!/usr/bin/env Rscript
-# Test script for r_inctools_julia package (local testing without GitHub)
+# Test script for inctools.julia package (local testing without GitHub)
 
 cat("\n")
 cat(rep("=", 70), "\n", sep="")
-cat("Testing r_inctools_julia Package (Local)\n")
+cat("Testing inctools.julia Package (Local)\n")
 cat(rep("=", 70), "\n\n", sep="")
 
 # Test 1: Check package can be loaded from source
@@ -11,7 +11,7 @@ cat("Test 1: Loading package from source files\n")
 cat(rep("-", 70), "\n", sep="")
 
 tryCatch({
-  setwd("/Users/eduard/dev/inctools_julia/r_inctools_julia")
+  setwd("/Users/eduard/dev/inctools_julia/inctools.julia")
   source("R/zzz.R")
   source("R/inctools.R")
   cat("✓ Package files sourced successfully\n\n")
@@ -134,4 +134,4 @@ cat("✓ prevalence(): OK\n")
 cat("✓ prevalence() with CI: OK\n")
 cat("✓ inccounts(): OK\n")
 cat("✓ incprops(): OK\n\n")
-cat("Package renaming to 'r_inctools_julia' was successful!\n\n")
+cat("Package renaming to 'inctools.julia' was successful!\n\n")

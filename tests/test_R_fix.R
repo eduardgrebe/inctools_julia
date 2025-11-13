@@ -21,8 +21,8 @@
 
 # Quick test of the R API fix
 # Run from repository root: Rscript tests/test_R_fix.R
-source("r_inctools_julia/R/zzz.R")
-source("r_inctools_julia/R/inctools.R")
+source("inctools.julia/R/zzz.R")
+source("inctools.julia/R/inctools.R")
 
 cat("Initializing Julia...\n")
 inctools_setup()

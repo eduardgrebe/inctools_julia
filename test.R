@@ -1,10 +1,10 @@
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctools.julia/R/install.R")
 install_inctools_julia()  # Handles everything automatically
 
-library(r_inctools_julia)
+library(inctools.julia)
 
 # Compare results of new package and old package
-# Compare inctools and r_inctools_julia (no bootstrapping)
+# Compare inctools and inctools.julia (no bootstrapping)
 result_julia <- incprops(
   prev = 0.20,
   sigma_prev = 0.01265,
@@ -33,7 +33,7 @@ print(result_julia)
 print(result_r)
 # Pretty much the same
 
-# Compare inctools and r_inctools_julia (with bootstrapping, no shared seed)
+# Compare inctools and inctools.julia (with bootstrapping, no shared seed)
 result_julia <- incprops(
   prev = 0.20,
   sigma_prev = 0.01265,

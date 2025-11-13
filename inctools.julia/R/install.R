@@ -19,9 +19,9 @@
 # details.  You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' Install r_inctools_julia from GitHub
+#' Install inctools.julia from GitHub
 #'
-#' Streamlined installation of the r_inctools_julia R package from GitHub.
+#' Streamlined installation of the inctools.julia R package from GitHub.
 #' This function handles installation of the R package and initialization of
 #' the Julia backend with all dependencies.
 #'
@@ -37,7 +37,7 @@
 #' \enumerate{
 #'   \item Checks that Julia is installed and accessible
 #'   \item Installs/upgrades the devtools package if needed
-#'   \item Installs the r_inctools_julia R package from GitHub
+#'   \item Installs the inctools.julia R package from GitHub
 #'   \item Loads the package and initializes the Julia environment
 #'   \item Installs all Julia package dependencies (Distributions, DataFrames, etc.)
 #'   \item Runs a quick test to verify the installation
@@ -75,7 +75,7 @@ install_inctools_julia <- function(repo = "eduardgrebe/inctools_julia",
 
   cat("\n")
   cat("========================================\n")
-  cat("r_inctools_julia Installation\n")
+  cat("inctools.julia Installation\n")
   cat("========================================\n\n")
 
   # Step 1: Check Julia installation
@@ -102,15 +102,15 @@ install_inctools_julia <- function(repo = "eduardgrebe/inctools_julia",
   }
   cat("  \u2713 devtools available\n\n")
 
-  # Step 3: Install r_inctools_julia from GitHub
-  cat("Step 3/5: Installing r_inctools_julia R package from GitHub...\n")
+  # Step 3: Install inctools.julia from GitHub
+  cat("Step 3/5: Installing inctools.julia R package from GitHub...\n")
   cat("  Repository:", repo, "\n")
   cat("  Reference:", ref, "\n")
 
   tryCatch({
     devtools::install_github(
       repo,
-      subdir = "r_inctools_julia",
+      subdir = "inctools.julia",
       ref = ref,
       upgrade = upgrade,
       force = force,
@@ -127,7 +127,7 @@ install_inctools_julia <- function(repo = "eduardgrebe/inctools_julia",
 
   tryCatch({
     # Load the package
-    library(r_inctools_julia)
+    library(inctools.julia)
 
     # Initialize Julia
     inctools_setup()
@@ -165,27 +165,27 @@ install_inctools_julia <- function(repo = "eduardgrebe/inctools_julia",
   # Don't throw warning if verification passed
   if (!verification_passed) {
     message("Note: Installation may have completed successfully despite verification warning.")
-    message("Try running: library(r_inctools_julia); prevalence(100, 1000)")
+    message("Try running: library(inctools.julia); prevalence(100, 1000)")
   }
 
   # Success message
   cat("========================================\n")
   cat("Installation Complete!\n")
   cat("========================================\n\n")
-  cat("You can now use r_inctools_julia functions:\n")
+  cat("You can now use inctools.julia functions:\n")
   cat("  - prevalence(pos, n, ...)\n")
   cat("  - incprops(...)\n")
   cat("  - inccounts(...)\n")
   cat("  - incdif(...)\n\n")
-  cat("For help, see: ?r_inctools_julia or ?prevalence\n\n")
+  cat("For help, see: ?inctools.julia or ?prevalence\n\n")
 
   invisible(TRUE)
 }
 
 
-#' Check r_inctools_julia Installation Status
+#' Check inctools.julia Installation Status
 #'
-#' Checks whether r_inctools_julia is properly installed and configured.
+#' Checks whether inctools.julia is properly installed and configured.
 #'
 #' @param verbose Whether to print detailed status information. Default: TRUE
 #'
@@ -219,14 +219,14 @@ check_inctools_installation <- function(verbose = TRUE) {
 
   if (verbose) {
     cat("\n")
-    cat("r_inctools_julia Installation Status\n")
+    cat("inctools.julia Installation Status\n")
     cat("==================================\n\n")
   }
 
   # Check R package
-  status$r_package_installed <- requireNamespace("r_inctools_julia", quietly = TRUE)
+  status$r_package_installed <- requireNamespace("inctools.julia", quietly = TRUE)
   if (verbose) {
-    cat("R package (r_inctools_julia):  ",
+    cat("R package (inctools.julia):  ",
         ifelse(status$r_package_installed, "\u2713 Installed", "\u2717 Not installed"),
         "\n")
   }
@@ -261,7 +261,7 @@ check_inctools_installation <- function(verbose = TRUE) {
   # Check if Inctools.jl is loaded
   if (status$r_package_installed && status$julia_initialized) {
     status$inctools_loaded <- tryCatch({
-      library(r_inctools_julia)
+      library(inctools.julia)
       result <- prevalence(10, 100)
       !is.null(result)
     }, error = function(e) FALSE)

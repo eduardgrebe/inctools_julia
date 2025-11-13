@@ -1,20 +1,20 @@
 #!/usr/bin/env Rscript
-# Test r_inctools_julia vs CRAN inctools package (without GitHub installation)
+# Test inctools.julia vs CRAN inctools package (without GitHub installation)
 
 cat("\n")
 cat(rep("=", 70), "\n", sep="")
-cat("Testing r_inctools_julia vs CRAN inctools\n")
+cat("Testing inctools.julia vs CRAN inctools\n")
 cat(rep("=", 70), "\n\n", sep="")
 
-# Load r_inctools_julia from source
-cat("Loading r_inctools_julia from source...\n")
-setwd("/Users/eduard/dev/inctools_julia/r_inctools_julia")
+# Load inctools.julia from source
+cat("Loading inctools.julia from source...\n")
+setwd("/Users/eduard/dev/inctools_julia/inctools.julia")
 source("R/zzz.R")
 source("R/inctools.R")
 inctools_setup()
-cat("✓ r_inctools_julia loaded\n\n")
+cat("✓ inctools.julia loaded\n\n")
 
-# Test 1: Compare inctools and r_inctools_julia (no bootstrapping)
+# Test 1: Compare inctools and inctools.julia (no bootstrapping)
 cat("Test 1: Comparing with CRAN inctools (Delta method)\n")
 cat(rep("-", 70), "\n", sep="")
 
@@ -42,7 +42,7 @@ result_r <- inctools::incprops(
   Boot = FALSE
 )
 
-cat("\nr_inctools_julia result:\n")
+cat("\ninctools.julia result:\n")
 print(result_julia)
 cat("\nCRAN inctools result:\n")
 print(result_r)
@@ -85,7 +85,7 @@ result_r_bs <- inctools::incprops(
   BS_Count = 1000
 )
 
-cat("\nr_inctools_julia result (bs=1000):\n")
+cat("\ninctools.julia result (bs=1000):\n")
 print(result_julia_bs)
 cat("\nCRAN inctools result (bs=1000):\n")
 print(result_r_bs)
@@ -100,4 +100,4 @@ if (abs(result_julia_bs$I - result_r_bs$Incidence$Incidence) < 0.005) {
 cat(rep("=", 70), "\n", sep="")
 cat("COMPARISON COMPLETE!\n")
 cat(rep("=", 70), "\n\n", sep="")
-cat("r_inctools_julia produces equivalent results to CRAN inctools\n\n")
+cat("inctools.julia produces equivalent results to CRAN inctools\n\n")
