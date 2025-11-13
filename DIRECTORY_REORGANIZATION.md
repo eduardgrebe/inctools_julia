@@ -320,7 +320,7 @@ inctools_julia/                        # Repository root
 ### Check Structure
 ```bash
 ls -la
-# Should see: Inctools/ InctoolsJulia/ tests/ README.md
+# Should see: Inctools/ r_inctools_julia/ tests/ README.md
 ```
 
 ### Verify Symlink

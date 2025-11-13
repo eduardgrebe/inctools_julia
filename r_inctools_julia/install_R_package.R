@@ -78,7 +78,7 @@ tryCatch({
 cat("Checking for Inctools.jl package...\n")
 # Try to find Inctools in common locations
 possible_paths <- c(
-  file.path(getwd(), "..", "Inctools"),  # From InctoolsJulia/ directory
+  file.path(getwd(), "..", "Inctools"),  # From r_inctools_julia/ directory
   file.path(getwd(), "Inctools"),        # From repository root
   file.path(dirname(getwd()), "Inctools") # From subdirectory
 )
@@ -97,7 +97,7 @@ if (is.null(inctools_path)) {
   for (p in possible_paths) {
     cat("    - ", p, "\n")
   }
-  cat("\n  Please run this script from repository root or InctoolsJulia/ directory\n\n")
+  cat("\n  Please run this script from repository root or r_inctools_julia/ directory\n\n")
   stop("Inctools.jl package not found")
 }
 cat("  OK: Found Inctools.jl at: ", inctools_path, "\n\n")
@@ -120,13 +120,13 @@ cat("INSTALLATION SUCCESSFUL!\n")
 cat(rep("=", 70), "\n\n", sep = "")
 
 cat("Next steps:\n")
-cat("  1. To use the package, source the R files (from InctoolsJulia/ directory):\n")
+cat("  1. To use the package, source the R files (from r_inctools_julia/ directory):\n")
 cat("       source('R/zzz.R')\n")
 cat("       source('R/inctools.R')\n\n")
 cat("  2. Or install as an R package (from repository root):\n")
-cat("       install.packages('InctoolsJulia', repos = NULL, type = 'source')\n\n")
+cat("       install.packages('r_inctools_julia', repos = NULL, type = 'source')\n\n")
 cat("  3. Run the test script (from repository root):\n")
 cat("       Rscript tests/test_R_api.R\n\n")
-cat("  4. See InctoolsJulia/README.md for usage examples\n\n")
+cat("  4. See r_inctools_julia/README.md for usage examples\n\n")
 
 cat("Happy analyzing!\n")

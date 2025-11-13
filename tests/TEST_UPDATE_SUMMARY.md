@@ -9,7 +9,7 @@
 
 Updated all test scripts to work with the new directory structure where:
 - Julia package is in `Inctools/` subdirectory
-- R package is in `InctoolsJulia/` subdirectory
+- R package is in `r_inctools_julia/` subdirectory
 - Test files are in `tests/` subdirectory
 - Tests are run from repository root (or `tests/` for Julia)
 
@@ -205,7 +205,7 @@ Initializing Julia...
   - Work from `tests/` directory (uses `../Inctools`)
   - Automatic detection with clear error if run from wrong location
 - **R tests** must be run from repository root
-  - They use relative paths to `InctoolsJulia/R/`
+  - They use relative paths to `r_inctools_julia/R/`
   - R's `zzz.R` also has smart path detection for finding Inctools
 
 ---

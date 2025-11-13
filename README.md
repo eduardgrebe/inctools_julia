@@ -74,8 +74,8 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 
 ## Package Comparison
 
-| Feature | Inctools.jl (Julia) | InctoolsJulia (R) |
-|---------|---------------------|-------------------|
+| Feature | Inctools.jl (Julia) | r_inctools_julia (R) |
+|---------|---------------------|----------------------|
 | **Language** | Pure Julia | R wrapper for Julia |
 | **Speed** | Very fast | Very fast (uses Julia) |
 | **Installation** | Julia only | Requires Julia + R |
@@ -194,7 +194,7 @@ Rscript install_R_package.R
 - Julia ≥ 1.6
 - Dependencies: DataFrames, Distributions, LinearAlgebra, Statistics
 
-### For InctoolsJulia
+### For r_inctools_julia
 - Julia ≥ 1.6
 - R ≥ 3.5.0
 - R package: JuliaCall ≥ 0.17.0
@@ -209,7 +209,7 @@ Rscript install_R_package.R
 - Fixed typos in error messages
 - Standardized parameter naming (cov → covar)
 - Fixed bugs in inccounts (parameter passing)
-- Added R package wrapper (InctoolsJulia)
+- Added R package wrapper (r_inctools_julia)
 - Comprehensive test suite (9 tests)
 - Updated author information
 
