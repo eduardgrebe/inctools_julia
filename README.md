@@ -56,12 +56,12 @@ result = inccounts(1000, 200, 180, 20, 130.0, 0.01,
 ### For R Users
 
 ```r
-# Option 1: Source files directly (from repository root)
-setwd("InctoolsJulia")
-source("R/zzz.R")
-source("R/inctools.R")
+# Option 1: Install from GitHub (recommended)
+# First, source the installation function
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+install_inctools_julia()  # Handles everything automatically
 
-# Option 2: Install as R package (from repository root)
+# Option 2: Manual installation from local repository (from repository root)
 install.packages("InctoolsJulia", repos = NULL, type = "source")
 library(InctoolsJulia)
 
@@ -156,12 +156,30 @@ Pkg.instantiate()
 
 ### R Package
 
+**Option 1: Install from GitHub (Recommended)**
+
+```r
+# Source the installation function
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+
+# Run streamlined installation (handles R package + Julia dependencies)
+install_inctools_julia()
+```
+
+This automatically:
+- Installs the R package from GitHub
+- Initializes Julia environment
+- Installs all Julia dependencies
+- Verifies the installation
+
+**Option 2: Install from local repository**
+
 ```r
 # From repository root
 install.packages("InctoolsJulia", repos = NULL, type = "source")
 ```
 
-Or use the installation script:
+**Option 3: Use installation script**
 
 ```bash
 cd InctoolsJulia

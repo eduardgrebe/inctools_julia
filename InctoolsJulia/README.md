@@ -19,22 +19,39 @@ This package provides an R interface to the **Inctools.jl** Julia package for HI
 1. **Install Julia** (version ≥ 1.6)
    - Download from: https://julialang.org/downloads/
    - Add Julia to your PATH
-
-2. **Install JuliaCall R package**
-   ```r
-   install.packages("JuliaCall")
-   ```
+   - Verify installation: `julia --version`
 
 ### Install InctoolsJulia for R
 
-#### Option 1: Install from source (current directory)
+#### Option 1: Streamlined Installation from GitHub (Recommended)
+
+This is the easiest method - it handles all dependencies automatically:
+
+```r
+# Source the installation function
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+
+# Run streamlined installation
+install_inctools_julia()
+```
+
+This will:
+- Install devtools (if needed)
+- Install InctoolsJulia R package from GitHub
+- Initialize Julia environment
+- Install all Julia dependencies (DataFrames, Distributions, etc.)
+- Verify the installation with a test
+- Display status messages throughout the process
+
+#### Option 2: Install from source (local repository)
 
 ```r
 # From R, in the directory containing this README
 install.packages(".", repos = NULL, type = "source")
+library(InctoolsJulia)
 ```
 
-#### Option 2: Load without installing
+#### Option 3: Load without installing
 
 ```r
 # Load functions directly
@@ -43,6 +60,17 @@ source("R/inctools.R")
 
 # Initialize Julia
 inctools_setup()
+```
+
+### Check Installation Status
+
+After installation, you can check that everything is working:
+
+```r
+library(InctoolsJulia)
+
+# Check installation status
+check_inctools_installation()
 ```
 
 ## Quick Start
