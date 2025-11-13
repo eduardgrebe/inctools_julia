@@ -26,13 +26,10 @@ cat("Testing R API to Inctools.jl\n")
 cat(rep("=", 70), "\n\n", sep = "")
 
 # Load the R functions from InctoolsJulia package
-cat("Loading R functions...\n")
-source("InctoolsJulia/R/zzz.R")
-source("InctoolsJulia/R/inctools.R")
-
-# Initialize Julia and Inctools.jl
-cat("Initializing Julia (this may take ~30 seconds on first run)...\n")
-inctools_setup()
+cat("Installing and loading R package...\n")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+install_inctools_julia() 
+library(InctoolsJulia)
 
 cat("\n", rep("=", 70), "\n", sep = "")
 cat("Test 1: Simple prevalence calculation\n")
@@ -146,6 +143,76 @@ result6 <- incdif(
 cat(sprintf("Difference: %.4f\n", result6$Delta))
 cat(sprintf("95%% CI: [%.4f, %.4f]\n", result6$CI[1], result6$CI[2]))
 cat(sprintf("p-value: %.4f\n", result6$p))
+
+cat("\n", rep("=", 70), "\n", sep = "")
+cat("Test 7: Check consistency of incprops w old R package (delta method)\n")
+cat(rep("-", 70), "\n", sep = "")
+
+
+if(!("inctools" %in% .packages(all.available = TRUE))) {devtools::install_github("SACEMA/inctools")}
+suppressWarnings({
+  invisible(result7_r <- inctools::incprops(
+    PrevH = 0.20,
+    RSE_PrevH = 0.01265/0.20,
+    PrevR = 0.11,
+    RSE_PrevR = 0.02342/0.11,
+    MDRI = 130,
+    RSE_MDRI = 15/130,
+    FRR = 0.01,
+    RSE_FRR = 0.005/0.01,
+    Boot = FALSE
+  ))  
+})
+result7_julia <- incprops(
+  prev = 0.20,
+  sigma_prev = 0.01265,
+  prevR = 0.11,
+  sigma_prevR = 0.02342,
+  mdri = 130,
+  sigma_mdri = 15,
+  frr = 0.01,
+  sigma_frr = 0.005,
+  bs = 0
+)
+cat(sprintf("Point estimate (old R package): %.4f\n", result7_r$Incidence.Statistics$Incidence))
+cat(sprintf("Point estimate (new R package): %.4f\n", result7_julia$I))
+cat(sprintf("95%% CI (old R package): [%.4f, %.4f]\n", result7_r$Incidence.Statistics$CI_LB, result7_r$Incidence.Statistics$CI_UB))
+cat(sprintf("95%% CI (new R package): [%.4f, %.4f]\n", result7_julia$CI[1], result7_julia$CI[2]))
+
+cat("\n", rep("=", 70), "\n", sep = "")
+cat("Test 8: Check consistency of incprops w old R package (bootstrapping)\n")
+cat(rep("-", 70), "\n", sep = "")
+
+suppressWarnings({
+  invisible(result8_r <- inctools::incprops(
+    PrevH = 0.20,
+    RSE_PrevH = 0.01265/0.20,
+    PrevR = 0.11,
+    RSE_PrevR = 0.02342/0.11,
+    MDRI = 130,
+    RSE_MDRI = 15/130,
+    FRR = 0.01,
+    RSE_FRR = 0.005/0.01,
+    Boot = TRUE,
+    BS_Count = 100000
+  ))
+})
+result8_julia <- incprops(
+  prev = 0.20,
+  sigma_prev = 0.01265,
+  prevR = 0.11,
+  sigma_prevR = 0.02342,
+  mdri = 130,
+  sigma_mdri = 15,
+  frr = 0.01,
+  sigma_frr = 0.005,
+  bs = 100000
+)
+cat(sprintf("Point estimate (old R package): %.4f\n", result8_r$Incidence.Statistics$Incidence))
+cat(sprintf("Point estimate (new R package): %.4f\n", result8_julia$I))
+cat(sprintf("95%% CI (old R package): [%.4f, %.4f]\n", result8_r$Incidence.Statistics$CI_LB, result8_r$Incidence.Statistics$CI_UB))
+cat(sprintf("95%% CI (new R package): [%.4f, %.4f]\n", result8_julia$CI[1], result8_julia$CI[2]))
+
 
 cat("\n", rep("=", 70), "\n", sep = "")
 cat("ALL TESTS COMPLETED SUCCESSFULLY!\n")
