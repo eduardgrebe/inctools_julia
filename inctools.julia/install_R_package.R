@@ -29,8 +29,8 @@ cat(rep("=", 70), "\n\n", sep = "")
 
 # Check R version
 cat("Checking R version...\n")
-r_version <- as.numeric(paste(R.version$major, R.version$minor, sep = "."))
-if (r_version < 3.5) {
+r_version <- getRversion()
+if (r_version < "3.5.0") {
   stop("R version 3.5.0 or higher is required. You have: ", R.version.string)
 }
 cat("  OK: ", R.version.string, "\n\n")
@@ -107,6 +107,9 @@ cat("Activating and precompiling Inctools.jl...\n")
 cat("  (This may take 1-2 minutes on first run)\n")
 tryCatch({
   JuliaCall::julia_eval(sprintf('using Pkg; Pkg.activate("%s")', inctools_path))
+  cat("  Installing Julia dependencies...\n")
+  JuliaCall::julia_eval("using Pkg; Pkg.instantiate()")
+  cat("  Loading Inctools.jl...\n")
   JuliaCall::julia_eval("using Inctools")
   cat("  OK: Inctools.jl loaded successfully\n\n")
 }, error = function(e) {
