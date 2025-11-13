@@ -1,7 +1,7 @@
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
 install_inctools_julia()  # Handles everything automatically
 
-library(InctoolsJulia)
+library(r_inctools_julia)
 
 # Compare results of new package and old package
 # Compare inctools and InctoolsJulia (no bootstrapping)

@@ -3,7 +3,7 @@
 This repository contains two packages for HIV incidence estimation using the Kassanjee method:
 
 1. **Inctools.jl** - Native Julia package
-2. **InctoolsJulia** - R package that wraps Inctools.jl
+2. **r_inctools_julia** - R package that wraps Inctools.jl
 
 Both packages provide identical functionality. Choose based on your environment and needs.
 
@@ -19,7 +19,7 @@ inctools_julia/         # Repository root
 │   │   └── Inctools.jl # Main Julia code
 │   └── ...
 │
-├── InctoolsJulia/      # R package
+├── r_inctools_julia/   # R package
 │   ├── R/              # R wrapper functions
 │   ├── inst/           # Installed files
 │   │   └── Inctools/   # Symlink to ../Inctools
@@ -58,12 +58,12 @@ result = inccounts(1000, 200, 180, 20, 130.0, 0.01,
 ```r
 # Option 1: Install from GitHub (recommended)
 # First, source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
 install_inctools_julia()  # Handles everything automatically
 
 # Option 2: Manual installation from local repository (from repository root)
-install.packages("InctoolsJulia", repos = NULL, type = "source")
-library(InctoolsJulia)
+install.packages("r_inctools_julia", repos = NULL, type = "source")
+library(r_inctools_julia)
 
 # Use the package
 result <- inccounts(1000, 200, 180, 20, 130, 0.01,
@@ -105,7 +105,7 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 - `incdif(prev, σ_prev, prevR, σ_prevR, mdri, σ_mdri, frr, σ_frr; ...)` - Test difference between populations
 - `rtmvnorm(n, μ, Σ, lower, upper; method)` - Truncated multivariate normal sampling
 
-### 2. InctoolsJulia (R Package)
+### 2. r_inctools_julia (R Package)
 
 **Version:** 0.2.0
 
@@ -115,7 +115,7 @@ result <- inccounts(1000, 200, 180, 20, 130, 0.01,
 - Same performance as Julia (calls Julia backend)
 - Familiar R syntax and conventions
 
-**Documentation:** See `InctoolsJulia/README.md`
+**Documentation:** See `r_inctools_julia/README.md`
 
 **Key Functions:**
 - `prevalence(pos, n, de, ci, alpha)` - Prevalence estimation
@@ -160,7 +160,7 @@ Pkg.instantiate()
 
 ```r
 # Source the installation function
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
 
 # Run streamlined installation (handles R package + Julia dependencies)
 install_inctools_julia()
@@ -176,13 +176,13 @@ This automatically:
 
 ```r
 # From repository root
-install.packages("InctoolsJulia", repos = NULL, type = "source")
+install.packages("r_inctools_julia", repos = NULL, type = "source")
 ```
 
 **Option 3: Use installation script**
 
 ```bash
-cd InctoolsJulia
+cd r_inctools_julia
 Rscript install_R_package.R
 ```
 

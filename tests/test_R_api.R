@@ -25,11 +25,11 @@
 cat("Testing R API to Inctools.jl\n")
 cat(rep("=", 70), "\n\n", sep = "")
 
-# Load the R functions from InctoolsJulia package
+# Load the R functions from r_inctools_julia package
 cat("Installing and loading R package...\n")
-source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/InctoolsJulia/R/install.R")
-install_inctools_julia() 
-library(InctoolsJulia)
+source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/r_inctools_julia/R/install.R")
+install_inctools_julia()
+library(r_inctools_julia)
 
 cat("\n", rep("=", 70), "\n", sep = "")
 cat("Test 1: Simple prevalence calculation\n")

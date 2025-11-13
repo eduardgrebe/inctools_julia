@@ -21,9 +21,9 @@
 # details.  You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Installation script for InctoolsJulia R package
+# Installation script for r_inctools_julia R package
 
-cat("InctoolsJulia - R Interface to Inctools.jl\n")
+cat("r_inctools_julia - R Interface to Inctools.jl\n")
 cat("Package Installation\n")
 cat(rep("=", 70), "\n\n", sep = "")
 

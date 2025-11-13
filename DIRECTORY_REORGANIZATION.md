@@ -45,7 +45,7 @@ inctools_julia/            # Repository root
 │   └── src/
 │       └── Inctools.jl
 │
-├── InctoolsJulia/         # R package
+├── r_inctools_julia/      # R package
 │   ├── R/
 │   │   ├── zzz.R
 │   │   └── inctools.R
@@ -77,14 +77,14 @@ inctools_julia/            # Repository root
 
 ## File Movements
 
-### Moved to `InctoolsJulia/`
-- ✅ `R/` → `InctoolsJulia/R/`
-- ✅ `DESCRIPTION` → `InctoolsJulia/DESCRIPTION`
-- ✅ `NAMESPACE` → `InctoolsJulia/NAMESPACE`
-- ✅ `README_R.md` → `InctoolsJulia/README.md` (renamed)
-- ✅ `install_R_package.R` → `InctoolsJulia/install_R_package.R`
-- ✅ `R_API_*.md` → `InctoolsJulia/R_API_*.md`
-- ✅ `PACKAGE_RENAME_SUMMARY.md` → `InctoolsJulia/PACKAGE_RENAME_SUMMARY.md`
+### Moved to `r_inctools_julia/`
+- ✅ `R/` → `r_inctools_julia/R/`
+- ✅ `DESCRIPTION` → `r_inctools_julia/DESCRIPTION`
+- ✅ `NAMESPACE` → `r_inctools_julia/NAMESPACE`
+- ✅ `README_R.md` → `r_inctools_julia/README.md` (renamed)
+- ✅ `install_R_package.R` → `r_inctools_julia/install_R_package.R`
+- ✅ `R_API_*.md` → `r_inctools_julia/R_API_*.md`
+- ✅ `PACKAGE_RENAME_SUMMARY.md` → `r_inctools_julia/PACKAGE_RENAME_SUMMARY.md`
 
 ### Moved to `tests/`
 - ✅ `test_comprehensive.jl` → `tests/test_comprehensive.jl`
@@ -95,8 +95,8 @@ inctools_julia/            # Repository root
 - ✅ `test_R_fix.R` → `tests/test_R_fix.R`
 
 ### Created New
-- ✅ `InctoolsJulia/inst/` directory
-- ✅ `InctoolsJulia/inst/Inctools` symlink → `../../Inctools`
+- ✅ `r_inctools_julia/inst/` directory
+- ✅ `r_inctools_julia/inst/Inctools` symlink → `../../Inctools`
 - ✅ `README.md` (main README at top level)
 - ✅ `tests/` directory
 
@@ -110,18 +110,18 @@ inctools_julia/            # Repository root
 
 ## Code Updates
 
-### 1. `InctoolsJulia/R/zzz.R`
+### 1. `r_inctools_julia/R/zzz.R`
 
 **Updated path detection logic:**
 
 ```r
 # When installed: inst/Inctools becomes <package-root>/Inctools
-pkg_path <- system.file("Inctools", package = "InctoolsJulia", mustWork = FALSE)
+pkg_path <- system.file("Inctools", package = "r_inctools_julia", mustWork = FALSE)
 
 if (pkg_path == "") {
   # If not installed, try common development locations
   possible_paths <- c(
-    file.path(getwd(), "..", "Inctools"),        # From InctoolsJulia/
+    file.path(getwd(), "..", "Inctools"),        # From r_inctools_julia/
     file.path(getwd(), "Inctools"),              # From repository root
     file.path(dirname(getwd()), "Inctools")      # From subdirectory
   )
@@ -130,25 +130,25 @@ if (pkg_path == "") {
 ```
 
 Now works from multiple locations:
-- When sourcing from `InctoolsJulia/` directory
+- When sourcing from `r_inctools_julia/` directory
 - When running from repository root
 - When installed as R package
 
-### 2. `InctoolsJulia/install_R_package.R`
+### 2. `r_inctools_julia/install_R_package.R`
 
 **Updated to find Inctools in multiple locations:**
 
 ```r
 possible_paths <- c(
-  file.path(getwd(), "..", "Inctools"),   # From InctoolsJulia/
+  file.path(getwd(), "..", "Inctools"),   # From r_inctools_julia/
   file.path(getwd(), "Inctools"),         # From repository root
   file.path(dirname(getwd()), "Inctools") # From subdirectory
 )
 ```
 
 **Updated installation instructions:**
-- Run from repository root or `InctoolsJulia/`
-- Install command: `install.packages('InctoolsJulia', ...)`
+- Run from repository root or `r_inctools_julia/`
+- Install command: `install.packages('r_inctools_julia', ...)`
 - Test command: `Rscript tests/test_R_api.R`
 
 ---
@@ -159,9 +159,9 @@ possible_paths <- c(
 
 R packages use the `inst/` directory for files that should be installed with the package. During installation:
 
-1. **Development:** `InctoolsJulia/inst/Inctools` is a symlink to `../../Inctools`
+1. **Development:** `r_inctools_julia/inst/Inctools` is a symlink to `../../Inctools`
 2. **Installation:** R copies `inst/` contents to the package root
-3. **Installed:** Becomes `<R-library>/InctoolsJulia/Inctools/`
+3. **Installed:** Becomes `<R-library>/r_inctools_julia/Inctools/`
 
 ### Why Symlink?
 
@@ -174,12 +174,12 @@ R packages use the `inst/` directory for files that should be installed with the
 
 ```bash
 # Before installation (development)
-InctoolsJulia/
+r_inctools_julia/
 ├── inst/
 │   └── Inctools -> ../../Inctools  # Symlink follows to real files
 
 # After installation
-/Library/R/library/InctoolsJulia/
+/Library/R/library/r_inctools_julia/
 ├── Inctools/                        # Real files copied
 │   ├── Project.toml
 │   └── src/
@@ -211,7 +211,7 @@ source("R/inctools.R")
 
 **After:**
 ```r
-# From InctoolsJulia/ directory
+# From r_inctools_julia/ directory
 source("R/zzz.R")
 source("R/inctools.R")
 ```
@@ -228,8 +228,8 @@ library(Inctools)  # Wrong name
 **After:**
 ```r
 # From repository root
-install.packages("InctoolsJulia", repos = NULL, type = "source")
-library(InctoolsJulia)  # Correct name
+install.packages("r_inctools_julia", repos = NULL, type = "source")
+library(r_inctools_julia)  # Correct name
 ```
 
 ### Running Tests
@@ -252,7 +252,7 @@ Rscript tests/test_R_api.R
 
 ### 1. Clear Separation
 - ✅ Julia package in `Inctools/`
-- ✅ R package in `InctoolsJulia/`
+- ✅ R package in `r_inctools_julia/`
 - ✅ Tests in `tests/`
 - ✅ Docs at appropriate levels
 
@@ -284,7 +284,7 @@ inctools_julia/                        # Repository root
 │   └── src/
 │       └── Inctools.jl                # 1234 lines
 │
-├── InctoolsJulia/                     # R package
+├── r_inctools_julia/                  # R package
 │   ├── R/
 │   │   ├── zzz.R                      # Package initialization
 │   │   └── inctools.R                 # Main functions (219 lines)
@@ -325,7 +325,7 @@ ls -la
 
 ### Verify Symlink
 ```bash
-ls -la InctoolsJulia/inst/
+ls -la r_inctools_julia/inst/
 # Should see: Inctools -> ../../Inctools
 ```
 
@@ -345,11 +345,11 @@ Rscript tests/test_R_api.R
 
 ## Migration Checklist
 
-- [x] Create `InctoolsJulia/` directory
+- [x] Create `r_inctools_julia/` directory
 - [x] Create `tests/` directory
-- [x] Move R files to `InctoolsJulia/`
+- [x] Move R files to `r_inctools_julia/`
 - [x] Move test files to `tests/`
-- [x] Create `InctoolsJulia/inst/` directory
+- [x] Create `r_inctools_julia/inst/` directory
 - [x] Create symlink `inst/Inctools -> ../../Inctools`
 - [x] Update `R/zzz.R` path detection
 - [x] Update `install_R_package.R` paths

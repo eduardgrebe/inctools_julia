@@ -62,8 +62,8 @@ source("R/inctools.R")
 
 **After:**
 ```r
-source("InctoolsJulia/R/zzz.R")
-source("InctoolsJulia/R/inctools.R")
+source("r_inctools_julia/R/zzz.R")
+source("r_inctools_julia/R/inctools.R")
 ```
 
 ### 2. `tests/test_R_fix.R`
@@ -76,8 +76,8 @@ source("R/inctools.R")
 
 **After:**
 ```r
-source("InctoolsJulia/R/zzz.R")
-source("InctoolsJulia/R/inctools.R")
+source("r_inctools_julia/R/zzz.R")
+source("r_inctools_julia/R/inctools.R")
 ```
 
 ---
@@ -121,7 +121,7 @@ inctools_julia/                # ← Run all tests from here (repository root)
 │   ├── Project.toml
 │   └── src/Inctools.jl
 │
-├── InctoolsJulia/             # R package
+├── r_inctools_julia/          # R package
 │   ├── R/
 │   │   ├── zzz.R              # ← R tests source this
 │   │   └── inctools.R         # ← R tests source this
@@ -154,11 +154,11 @@ inctools_julia/                # ← Run all tests from here (repository root)
 ### R Tests
 
 **From repository root (required):**
-- `InctoolsJulia/R/zzz.R` → Resolves to correct file ✓
-- `InctoolsJulia/R/inctools.R` → Resolves to correct file ✓
+- `r_inctools_julia/R/zzz.R` → Resolves to correct file ✓
+- `r_inctools_julia/R/inctools.R` → Resolves to correct file ✓
 
 The R functions in `zzz.R` then find the Julia package:
-- Checks `../Inctools` (from `InctoolsJulia/`)
+- Checks `../Inctools` (from `r_inctools_julia/`)
 - Finds `Inctools/Project.toml` ✓
 
 ---
@@ -243,7 +243,7 @@ Initializing Julia...
 - Clear error messages if run from wrong location
 
 ### R Tests
-- Source from `InctoolsJulia/R/` (updated from `R/`)
+- Source from `r_inctools_julia/R/` (updated from `R/`)
 - Must run from repository root
 - Work with reorganized file structure
 

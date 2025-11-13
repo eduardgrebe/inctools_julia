@@ -38,7 +38,7 @@
 
     # Get the path to the Inctools.jl package
     # When installed: inst/Inctools becomes <package-root>/Inctools
-    pkg_path <- system.file("Inctools", package = "InctoolsJulia", mustWork = FALSE)
+    pkg_path <- system.file("Inctools", package = "r_inctools_julia", mustWork = FALSE)
 
     if (pkg_path == "") {
       # If not installed as R package, try common development locations
