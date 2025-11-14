@@ -62,6 +62,7 @@ source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctoo
 install_inctools_julia()  # Handles everything automatically
 
 # Option 2: Manual installation from local repository (from repository root)
+install.packages("JuliaCall")
 install.packages("inctools.julia", repos = NULL, type = "source")
 library(inctools.julia)
 
@@ -176,6 +177,7 @@ This automatically:
 
 ```r
 # From repository root
+install.packages("JuliaCall")
 install.packages("inctools.julia", repos = NULL, type = "source")
 ```
 
