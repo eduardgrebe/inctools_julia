@@ -264,5 +264,5 @@ Kassanjee R, McWalter TA, Bärnighausen T, Welte A. (2012). A new general biomar
 
 ## Links
 
-- GitHub: https://github.com/SACEMA/inctools
+- R inctools (Github): https://github.com/SACEMA/inctools
 - R inctools (CRAN): https://cran.r-project.org/package=inctools
