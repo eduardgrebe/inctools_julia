@@ -12,28 +12,28 @@ Both packages provide identical functionality. Choose based on your environment 
 ## Directory Structure
 
 ```
-inctools_julia/         # Repository root
-├── Inctools/           # Julia package
-│   ├── Project.toml    # Julia package manifest
+inctools_julia/               # Repository root
+├── Inctools/                 # Julia package
+│   ├── Project.toml          # Julia package manifest
 │   ├── src/
-│   │   └── Inctools.jl # Main Julia code
+│   │   └── Inctools.jl       # Main Julia code
 │   └── ...
 │
-├── inctools.julia/   # R package
-│   ├── R/              # R wrapper functions
-│   ├── inst/           # Installed files
-│   │   └── Inctools/   # Symlink to ../Inctools
-│   ├── DESCRIPTION     # R package metadata
-│   ├── NAMESPACE       # Exported R functions
-│   ├── README.md       # R package documentation
-│   └── install_R_package.R
+├── inctools.julia/           # R package
+│   ├── R/                    # R wrapper functions
+│   ├── inst/                 # Installed files
+│   │   └── Inctools/         # Symlink to ../Inctools
+│   ├── DESCRIPTION           # R package metadata
+│   ├── NAMESPACE             # Exported R functions
+│   ├── README.md             # R package documentation
+│   └── install_R_package.R   # Script to install package
 │
-├── tests/              # Test scripts
+├── tests/                    # Test scripts
 │   ├── test_comprehensive.jl
 │   ├── test_R_api.R
 │   └── ...
 │
-└── README.md           # This file
+└── README.md                 # This file
 ```
 
 ---
