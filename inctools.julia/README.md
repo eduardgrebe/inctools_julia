@@ -45,7 +45,13 @@ This will:
 
 #### Option 2: Install from source (local repository)
 
+> **⚠️ IMPORTANT**: When installing from local source with `repos = NULL`, R does **NOT** automatically install dependencies from CRAN. You **MUST** install JuliaCall first, or the installation will fail with an error.
+
 ```r
+# Step 1: Install JuliaCall from CRAN (REQUIRED!)
+install.packages("JuliaCall")
+
+# Step 2: Install inctools.julia from local source
 # From R, in the directory containing this README
 install.packages(".", repos = NULL, type = "source")
 library(inctools.julia)
@@ -247,6 +253,24 @@ The Julia backend uses:
 First call will be slow (~30 seconds) due to Julia compilation. Subsequent calls are fast (<1 second).
 
 ## Troubleshooting
+
+### Missing JuliaCall dependency error
+
+If you see an error like:
+```
+ERROR: Missing Required Dependency
+Package 'JuliaCall' is required but not installed.
+```
+
+This occurs when installing from local source with `repos = NULL`. Solution:
+
+```r
+# Install JuliaCall first
+install.packages("JuliaCall")
+
+# Then reinstall inctools.julia
+install.packages("inctools.julia", repos = NULL, type = "source")
+```
 
 ### Julia not found
 

@@ -62,7 +62,9 @@ source("https://raw.githubusercontent.com/eduardgrebe/inctools_julia/main/inctoo
 install_inctools_julia()  # Handles everything automatically
 
 # Option 2: Manual installation from local repository (from repository root)
-install.packages("JuliaCall")
+# IMPORTANT: JuliaCall must be installed FIRST when installing from local source
+# R does NOT automatically install dependencies when repos = NULL
+install.packages("JuliaCall")  # REQUIRED: Install this first!
 install.packages("inctools.julia", repos = NULL, type = "source")
 library(inctools.julia)
 
@@ -175,9 +177,14 @@ This automatically:
 
 **Option 2: Install from local repository**
 
+> **⚠️ IMPORTANT**: When installing from local source with `repos = NULL`, R does **NOT** automatically install dependencies from CRAN. You **MUST** install JuliaCall first, or the installation will fail.
+
 ```r
 # From repository root
+# Step 1: Install JuliaCall from CRAN (REQUIRED!)
 install.packages("JuliaCall")
+
+# Step 2: Install inctools.julia from local source
 install.packages("inctools.julia", repos = NULL, type = "source")
 ```
 

@@ -23,7 +23,22 @@
 .onLoad <- function(libname, pkgname) {
   # Check if JuliaCall is available
   if (!requireNamespace("JuliaCall", quietly = TRUE)) {
-    stop("Package 'JuliaCall' is required but not installed. Install it with: install.packages('JuliaCall')")
+    stop(
+      "\n",
+      "================================================================================\n",
+      "ERROR: Missing Required Dependency\n",
+      "================================================================================\n",
+      "Package 'JuliaCall' is required but not installed.\n\n",
+      "This error commonly occurs when installing from local source with:\n",
+      "  install.packages('inctools.julia', repos = NULL, type = 'source')\n\n",
+      "R does not automatically install dependencies from CRAN when repos = NULL.\n\n",
+      "SOLUTION:\n",
+      "  Install JuliaCall first, then reinstall this package:\n",
+      "    install.packages('JuliaCall')\n",
+      "    install.packages('inctools.julia', repos = NULL, type = 'source')\n",
+      "================================================================================\n",
+      call. = FALSE
+    )
   }
 
   packageStartupMessage("Loading Inctools.jl Julia package...")
