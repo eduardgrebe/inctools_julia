@@ -245,19 +245,23 @@ GNU General Public License (v3)
 If you use these packages, please cite:
 
 ```
-Grebe E. (2025). Inctools.jl: Incidence Estimation Tools (v0.2.0). https://github.com/eduardgrebe/inctools_julia.
+Grebe E. (2025). Inctools.jl: Incidence Estimation Tools (v0.2.0).
+https://github.com/eduardgrebe/inctools_julia.
 ```
 
 You could additionally cite the original R package:
 
 ```
-Grebe E, Bäumler P, Juwara L, McIntosh AI, Ongarello S, Welte A. (2019). inctools (v1.0.15). Zenodo. https://doi.org/10.5281/zenodo.3594197.
+Grebe E, Bäumler P, Juwara L, McIntosh AI, Ongarello S, Welte A. (2019).
+inctools (v1.0.15). Zenodo. https://doi.org/10.5281/zenodo.3594197.
 ```
 
 And for the underlying method you should cite:
 
 ```
-Kassanjee R, McWalter TA, Bärnighausen T, Welte A. (2012). A new general biomarker-based incidence estimator. Epidemiology. 23(5):721-8. https://doi.org/10.1097/EDE.0b013e3182576c07.
+Kassanjee R, McWalter TA, Bärnighausen T, Welte A. (2012).
+A new general biomarker-based incidence estimator. Epidemiology.
+23(5):721-8. https://doi.org/10.1097/EDE.0b013e3182576c07.
 ```
 
 ---
